@@ -1,4 +1,4 @@
-# Bag of Words Model for NLP
+# Naive implementation of Bag of Words Model for NLP
 
 How Bag of Words in NLP works:
 
@@ -72,3 +72,33 @@ Each sentence is now represented as a numerical vector that can be:
 - Compared with other sentences
 - Used for classification tasks
 - Used for similarity measurements
+
+## Difference between my implementation and tensorflow implementaion:
+
+```bash
+(.venv) C:\Users\Chinzilla\bag_of_words>python main.py
+2025-09-26 15:53:36.594281: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-09-26 15:53:37.658635: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
+My Bag of words implementation output:
+
+[1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+[0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
+[0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0]
+[0, 1, 0, 0, 0, 1, 1, 0, 2, 0, 0, 1, 1, 1, 1]
+
+Tensorflow Bag of words output
+
+2025-09-26 15:53:37.895705: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Vocabulary: ['[UNK]', np.str_('the'), np.str_('bus'), np.str_('samantha'), np.str_('mary'), np.str_('for'), np.str_('and'), np.str_('waited'), np.str_('train'), np.str_('station')]
+Bag-of-Words Representation:
+ [[1 1 0 0 0 1 0 1 1 0]
+ [2 1 0 0 0 0 0 0 1 0]
+ [1 1 1 1 1 0 1 0 0 0]
+ [3 1 1 1 1 1 1 0 0 1]
+ [6 2 2 1 1 1 1 1 0 1]]
+
+(.venv) C:\Users\Chinzilla\bag_of_words>
+```

@@ -24,13 +24,13 @@ def clean_text(sentences):
 @return: array<string>
 @summary: Takes in the cleaned text and breaks up the sequence of strings into words, 
 keywords, phrases, symbols and other elements. In our project we will simply break
-the sequence of strings into words then sort.
+the sequence of strings into words.
 '''
 def tokenize(cleaned_sentences):
     words = []
     for cleaned_sentence in cleaned_sentences:
         words.extend(cleaned_sentence)
-    return sorted(words)
+    return words
 
 '''@function_name: build_vocab
 @arg: array<string>
@@ -64,8 +64,9 @@ def vectorization(vocab_list, cleaned_sentences):
             if word in word_to_index:
                 vector[word_to_index[word]] += 1
         sentence_vectors.append(vector)
-        print(sentence_vectors)
 
+    for vector in sentence_vectors:
+        print(vector)
     return sentence_vectors
 
 '''@function_name: generate_vector
