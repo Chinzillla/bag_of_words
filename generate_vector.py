@@ -36,7 +36,7 @@ def tokenize(cleaned_sentences):
 @arg: array<string>
 @return: frequency hashmap <string>:<int>
 @summary: Takes in the cleaned text and tokenizes the text into a
-frequency hashmap with key/value pair of <string>word:<int>freq
+sorted frequency hashmap with key/value pair of <string>word:<int>freq
 '''
 def build_vocab(token):
     vocab_list = {}
@@ -45,16 +45,28 @@ def build_vocab(token):
             vocab_list[word] = 1
         else:
             vocab_list[word] += 1
-    return vocab_list
+    return sorted(vocab_list.keys())
 
 '''@function_name: vectorization
 @arg: vocab_list<dict>, cleaned_sentences<array<array<string>>>
 @return: array<array<int>>
 @summary: Takes the vocabulary list and performs vectorization on each sentence
 '''
-def vectorization(vocab_list, cleaned_sentence):
+def vectorization(vocab_list, cleaned_sentences):
     vector_size = len(vocab_list)
-    return vocab_list
+    sentence_vectors = []
+
+    word_to_index = {word: i for i, word in enumerate(vocab_list)}
+
+    for sentence_words in cleaned_sentences:
+        vector = [0] * vector_size
+        for word in sentence_words:
+            if word in word_to_index:
+                vector[word_to_index[word]] += 1
+        sentence_vectors.append(vector)
+        print(sentence_vectors)
+        
+    return sentence_vectors
 
 '''@function_name: generate_vector
 @arg: array<string>
