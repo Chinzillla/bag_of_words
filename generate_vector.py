@@ -45,7 +45,7 @@ def build_vocab(token):
             vocab_list[word] = 1
         else:
             vocab_list[word] += 1
-    return sorted(vocab_list.keys())
+    return vocab_list
 
 '''@function_name: vectorization
 @arg: vocab_list<dict>, cleaned_sentences<array<array<string>>>
@@ -65,7 +65,7 @@ def vectorization(vocab_list, cleaned_sentences):
                 vector[word_to_index[word]] += 1
         sentence_vectors.append(vector)
         print(sentence_vectors)
-        
+
     return sentence_vectors
 
 '''@function_name: generate_vector
