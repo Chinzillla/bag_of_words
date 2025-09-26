@@ -1,3 +1,6 @@
+# Uncomment import and download code below if you did not download nltk stopword list on your environment yet
+# import nltk
+# nltk.download('stopwords')
 import generate_vector
 
 sentence = ["Joe waited for the train", "The train was late", "Mary and Samantha took the bus",
