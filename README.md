@@ -1,4 +1,4 @@
-# Bag of Words  
+# Bag of Words Model for NLP
 
 How Bag of Words in NLP works:
 
