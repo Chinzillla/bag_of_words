@@ -48,11 +48,17 @@ From our example, our vocabulary would be:
 
 This is sorted alphabetically and contains each unique word only once
 
+We also create a frequency hashmap to track how many times each word appears across all sentences:
+{brandon:1, doing:1, family:1, hi:1, meet:1, name:1, nice:1}
+
+How:
+
+
 How:
 
 6. Todo: We create vectors for each sentence based on our vocabulary
 
-Each sentence is represented as a vector where each position corresponds to a word in our vocabulary. We mark 1 if the word is present, 0 if not
+Each sentence is represented as a vector where each position corresponds to a word in our vocabulary. We mark with the frequency if the word is present, 0 if not
 
 - Hi my name is Brandon → [1,0,0,1,0,1,0]
 - Nice to meet you → [0,0,0,0,1,0,1]
